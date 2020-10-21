@@ -1,0 +1,25 @@
+### VSCode
+/.vscode/*
+*.code-workspace
+
+### Images
+*.jpg
+*.jpeg
+*.png
+*.bmp
+!/helper_scripts/images/colorspace_.png
+!/helper_scripts/images/line_.png
+!/helper_scripts/images/cross_.png
+!/helper_scripts/images/triangle_.png
+!/helper_scripts/images/arrow_.png
+!/helper_scripts/images/square_.png
+
+### TSV
+*.tsv
+*.csv
+!/helper_scripts/tsv/line_points_x4.tsv
+!/helper_scripts/tsv/cross_points_x4.tsv
+!/helper_scripts/tsv/triangle_points_x4.tsv
+!/helper_scripts/tsv/arrow_points_x4.tsv
+!/helper_scripts/tsv/square_points_x4.tsv
+
