@@ -23,3 +23,5 @@
 !/helper_scripts/tsv/arrow_points_x4.tsv
 !/helper_scripts/tsv/square_points_x4.tsv
 
+### Build
+*.out

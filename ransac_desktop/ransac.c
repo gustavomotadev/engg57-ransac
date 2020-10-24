@@ -1,0 +1,158 @@
+#include "line_points_x4.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//distancia maxima tolerada pra ser inlier
+#define DIST_TH 8
+#define DIST_TH_SQ (DIST_TH*DIST_TH)
+
+//numero maximo de iteracoes sorteando pares de pontos
+#define MAX_IT 16
+
+//numero de inliers a partir do qual o algoritmo aceita e para as iteracoes
+#define INLIER_TH (NUM_POINTS_/4)
+
+//macros para pegar em data_points_ o valor de X e Y
+#define X(a) (a)
+#define Y(a) (a+1)
+
+typedef struct ModelConstants
+{
+    //constantes do modelo (reta)
+    
+    float deltaX, deltaY, alpha, beta;
+
+} ModelConstants;
+
+typedef struct RegressionResult
+{
+    //resultado da regressao linear por minimos quadrados Y = A + B.X
+
+    float a, b;
+} RegressionResult;
+
+void copyConstants(const ModelConstants * source, ModelConstants * dest)
+{
+    //copia estrutura para outra para evitar incluir mais bibliotecas
+
+    dest->deltaX = source->deltaX;
+    dest->deltaY = source->deltaY;
+    dest->alpha = source->alpha;
+    dest->beta = source->beta;
+}
+
+void computeConstants(ModelConstants * cts, unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2)
+{
+    //computa as constantes do modelo (reta), com base em 2 pontos
+
+    cts->deltaX = x2 - x1;
+    cts->deltaY = y2 - y1;
+    cts->alpha = 1.0/((cts->deltaX*cts->deltaX) + (cts->deltaY*cts->deltaY));
+    cts->beta = x2*y1 - y2*x1;
+}
+
+float distSquarePointLine(ModelConstants * cts, unsigned char x3, unsigned char y3)
+{
+    //computa a proximidade de um terceiro ponto em relacao a reta calculada previamente
+    //https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line
+
+    float temp = cts->deltaY*x3 - cts->deltaX*y3 + cts->beta;
+    return cts->alpha * temp * temp;
+}
+
+void linearRegression(RegressionResult * res, const unsigned char * data, const unsigned char * mask)
+{
+    //calcular regressao linear simples pelo metodo de minimos quadrados
+    //essa funcao so leva em conta os pontos marcados na mascara
+    //https://en.wikipedia.org/wiki/Simple_linear_regression
+
+    int p;
+    float temp;
+    int numInliers = 0;
+    float mediaX = 0, mediaY = 0, sumUp = 0, sumDown = 0;
+
+    //calcular as medias de x e de y
+    for(p = 0; p < NUM_POINTS_; p += 2)
+    {
+        if(mask[p] == 1)
+        {
+            mediaX += data[X(p)];
+            mediaY += data[Y(p)];
+            numInliers++;
+        }
+    }
+    mediaX /= numInliers;
+    mediaY /= numInliers;
+
+    //calcular dois somatorios da formula de regressao linear
+    for(p = 0; p < NUM_POINTS_; p += 2)
+    {
+        if(mask[p] == 1)
+        {
+            temp = data[X(p)] - mediaX;
+
+            sumUp += temp * (data[Y(p)] - mediaY);
+            sumDown += temp * temp;
+        }
+    }
+
+    //calculo dos parametros a e b
+    res->b = sumUp/sumDown;
+
+    res->a = mediaY - res->b*mediaX;
+}
+
+void main(void)
+{
+    int i, p, point1, point2, inliers;
+    ModelConstants model, bestModel;
+    RegressionResult result;
+    int bestInliers = 0;
+    //booleano
+    unsigned char modelFound = 0;
+    
+    //encontrar uma reta
+    for(i = 0; i < MAX_IT; i++)
+    {
+        //Passo 1: Selecionar aleatoriamente 2 pontos
+        point1 = rand()%NUM_POINTS_;
+        point2 = rand()%NUM_POINTS_;
+
+        //Passo 2: Encontrar os parâmetros do modelo (reta)
+        computeConstants(&model, data_points_[X(point1)], data_points_[Y(point1)], data_points_[X(point2)], data_points_[Y(point2)]);
+
+        //Passo 3: Computar quantos pontos do conjunto se ajustam a reta de acordo com uma tolerancia (inliers)
+        inliers = 0;
+        for(p = 0; p < NUM_POINTS_; p += 2)
+        {
+            if(distSquarePointLine(&model, data_points_[X(p)], data_points_[Y(p)]) <= DIST_TH_SQ)
+            {
+                inliers++;
+                inlier_mask_[p] = 1;
+            }
+            else inlier_mask_[p] = 0;
+        }
+
+        if(inliers > bestInliers)
+        {
+            bestInliers = inliers;
+            copyConstants(&model, &bestModel);
+        }
+
+        //Passo 4: Se o numero de inliers for satisfatorio de acordo com uma tolerancia,
+        //reestimar o modelo utilizando os inliers identificados e terminar o loop
+        if(inliers >= INLIER_TH)
+        {
+            linearRegression(&result, data_points_, inlier_mask_);
+            modelFound = 1;
+            break;
+        }
+
+        //Passo 5: Se nao cumpriu os requisitos do passo 4, repetir o loop
+    }
+
+    //uma reta encontrada (ou nao)
+    if(modelFound == 1) printf("OK!\nIteracoes: %i\nInliers: %i\nEquacao: Y = %f + %fX\n", i, bestInliers, result.a, result.b);
+    else printf("NOT OK!\nIteracoes: %i\nInliers: %i\n", i, bestInliers);
+}

@@ -37,7 +37,7 @@ def plot_ransac(x, y, num_tries):
     for z in range(num_tries):
 
         if len(x) < MIN_POINTS_FOR_LINE or len(y) < MIN_POINTS_FOR_LINE:
-            print("Number of tries too high for this data, not enough points left.")
+            print('Number of tries too high for this data, not enough points left.')
             break
 
         # Robustly fit linear model with RANSAC algorithm
@@ -51,8 +51,9 @@ def plot_ransac(x, y, num_tries):
         line_y_ransac = ransac.predict(line_x)
 
         # Compare estimated coefficients
-        #print("Coefficients estimated using RANSAC):")
-        #print(ransac.estimator_.coef_)
+        print('Coefficients estimated using RANSAC:')
+        print('Inliers: ' + str(len(inlier_mask)))
+        print('Equation: Y = ' + '{0:.6f}'.format(ransac.estimator_.intercept_) + ' + ' + '{0:.6f}'.format(ransac.estimator_.coef_[0]) + 'X')
 
         #ransac_lines.append(RansacLine(inliers_x=x[inlier_mask], inliers_y=y[inlier_mask], outliers_x=x[outlier_mask], outliers_y=y[outlier_mask], line_x=line_x, line_y=line_y_ransac))
 
@@ -63,7 +64,7 @@ def plot_ransac(x, y, num_tries):
         x = x[outlier_mask]
         y = y[outlier_mask]
 
-        print(len(x))
+        #print(len(x))
 
         #print(line_x)
         #print(line_y_ransac)
@@ -82,6 +83,7 @@ def plot_ransac(x, y, num_tries):
 
 if len(sys.argv) != 3:
     print('Usage: ransac_python.py tsv_file num_tries')
+    exit(2)
 else:
 
     file_name = sys.argv[1]
@@ -105,3 +107,4 @@ else:
 
     else:
         print('Invalid filename.')
+        exit(2)
