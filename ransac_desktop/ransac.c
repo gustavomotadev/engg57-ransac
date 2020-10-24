@@ -2,20 +2,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //distancia maxima tolerada pra ser inlier
-#define DIST_TH 8
+#define DIST_TH 10
 #define DIST_TH_SQ (DIST_TH*DIST_TH)
 
 //numero maximo de iteracoes sorteando pares de pontos
-#define MAX_IT 16
+#define MAX_IT 20
 
 //numero de inliers a partir do qual o algoritmo aceita e para as iteracoes
-#define INLIER_TH (NUM_POINTS_/4)
+#define INLIER_TH ((int) NUM_POINTS_*0.4)
 
-//macros para pegar em data_points_ o valor de X e Y
-#define X(a) (a)
-#define Y(a) (a+1)
+//macros para pegar em data_points_ o valor de X e Y e o indice na mascara
+#define X(p) (p)
+#define Y(p) (p+1)
+#define MASK(p) (p>>1)
 
 typedef struct ModelConstants
 {
@@ -73,9 +75,9 @@ void linearRegression(RegressionResult * res, const unsigned char * data, const 
     float mediaX = 0, mediaY = 0, sumUp = 0, sumDown = 0;
 
     //calcular as medias de x e de y
-    for(p = 0; p < NUM_POINTS_; p += 2)
+    for(p = 0; p < DATA_SIZE_; p += 2)
     {
-        if(mask[p] == 1)
+        if(mask[MASK(p)] == 1)
         {
             mediaX += data[X(p)];
             mediaY += data[Y(p)];
@@ -86,9 +88,9 @@ void linearRegression(RegressionResult * res, const unsigned char * data, const 
     mediaY /= numInliers;
 
     //calcular dois somatorios da formula de regressao linear
-    for(p = 0; p < NUM_POINTS_; p += 2)
+    for(p = 0; p < DATA_SIZE_; p += 2)
     {
-        if(mask[p] == 1)
+        if(mask[MASK(p)] == 1)
         {
             temp = data[X(p)] - mediaX;
 
@@ -111,27 +113,29 @@ void main(void)
     int bestInliers = 0;
     //booleano
     unsigned char modelFound = 0;
+
+    srand(time(NULL));
     
     //encontrar uma reta
     for(i = 0; i < MAX_IT; i++)
     {
         //Passo 1: Selecionar aleatoriamente 2 pontos
-        point1 = rand()%NUM_POINTS_;
-        point2 = rand()%NUM_POINTS_;
+        point1 = (rand()%NUM_POINTS_)*2;
+        point2 = (rand()%NUM_POINTS_)*2;
 
         //Passo 2: Encontrar os parâmetros do modelo (reta)
         computeConstants(&model, data_points_[X(point1)], data_points_[Y(point1)], data_points_[X(point2)], data_points_[Y(point2)]);
 
         //Passo 3: Computar quantos pontos do conjunto se ajustam a reta de acordo com uma tolerancia (inliers)
         inliers = 0;
-        for(p = 0; p < NUM_POINTS_; p += 2)
+        for(p = 0; p < DATA_SIZE_; p += 2)
         {
             if(distSquarePointLine(&model, data_points_[X(p)], data_points_[Y(p)]) <= DIST_TH_SQ)
             {
                 inliers++;
-                inlier_mask_[p] = 1;
+                inlier_mask_[MASK(p)] = 1;
             }
-            else inlier_mask_[p] = 0;
+            else inlier_mask_[MASK(p)] = 0;
         }
 
         if(inliers > bestInliers)
@@ -153,6 +157,22 @@ void main(void)
     }
 
     //uma reta encontrada (ou nao)
-    if(modelFound == 1) printf("OK!\nIteracoes: %i\nInliers: %i\nEquacao: Y = %f + %fX\n", i, bestInliers, result.a, result.b);
-    else printf("NOT OK!\nIteracoes: %i\nInliers: %i\n", i, bestInliers);
+    //codigo exclusivo para a plataforma PC Desktop
+    if(modelFound == 0) printf("NOT OK!\nIteracoes: %i\nInliers: %i\n", i, bestInliers);
+    else
+    {
+        printf("OK!\nIteracoes: %i\nInliers: %i\nEquacao: Y = %f + %fX\n", i, bestInliers, result.a, result.b);
+
+        //imprimir dados na saida padrao para serem usados pela entrada padrao de script python para visualizar
+        printf("@DATA_START\n");
+        printf("@DATA_POINTS\n");
+        for(p = 0; p < DATA_SIZE_; p += 2) printf("%i,%i,", data_points_[X(p)], data_points_[Y(p)]);
+        printf("\n");
+        printf("@INLIER_MASK\n");
+        for(p = 0; p < NUM_POINTS_; p++) printf("%i,", inlier_mask_[p]);
+        printf("\n");
+        printf("@EQUATIONS\n");
+        printf("%i, %f, %f\n", 1, result.a, result.b);
+        printf("@DATA_END\n");
+    }
 }

@@ -66,8 +66,8 @@ def plot_ransac(x, y, num_tries):
 
         #print(len(x))
 
-        #print(line_x)
-        #print(line_y_ransac)
+        print(line_x)
+        print(line_y_ransac)
 
     #plt.legend(loc='lower right')
     plt.xticks([0, 255])

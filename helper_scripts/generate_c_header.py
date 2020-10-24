@@ -5,6 +5,7 @@ import re
 #unsigned int name[size] = {19, 10, 8, 17, 9};
 
 c_string_0 = r'#define NUM_POINTS_ $0'
+c_string_3 = r'#define DATA_SIZE_ $5'
 c_string_1 = r'const unsigned char data_points_[$1] = {$2};'
 c_string_2 = r'unsigned char inlier_mask_[$3] = {$4};'
 
@@ -33,14 +34,18 @@ else:
             c_string_1 = c_string_1.replace('$2', str(point_list)[1:-1])
             c_string_2 = c_string_2.replace('$3', str(len(tsv_lines)))
             c_string_2 = c_string_2.replace('$4', str(mask_list)[1:-1])
+            c_string_3 = c_string_3.replace('$5', str(len(point_list)))
 
             print(c_string_0)
+            print(c_string_3)
             print(c_string_1)
             print(c_string_2)
 
             output = file_name.replace('tsv', 'headers', 1).replace('tsv', 'h', 1)
             with open(output, 'w') as output_file:
                 output_file.write(c_string_0)
+                output_file.write('\n')
+                output_file.write(c_string_3)
                 output_file.write('\n')
                 output_file.write(c_string_1)
                 output_file.write('\n')
