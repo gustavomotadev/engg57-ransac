@@ -1,2 +1,2 @@
 # ransac_desktop
-TODO: Place here all files related to the software implementation of RANSAC algorithm for the desktop PC platform. 
+Software implementation of RANSAC algorithm for the desktop PC platform. Use generate_c_header.py inside helper_scripts to generate include headers with data. Compare result with ransac_python.py.
