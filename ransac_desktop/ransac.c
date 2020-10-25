@@ -210,10 +210,10 @@ void main(void)
 
     //uma reta encontrada (ou nao)
     //codigo exclusivo para a plataforma PC Desktop
-    if(modelFound == 0) printf("NOT OK!\nIteracoes: %i\nInliers: %i\n", i, bestInliers);
+    if(modelFound == 0) printf("NOT OK!\nIteracoes: %i\nInliers: %i\n", i+1, bestInliers);
     else
     {
-        printf("OK!\nIteracoes: %i\nInliers: %i\nEquacao: Y = %f + %fX\n", i, bestInliers, result.a, result.b);
+        printf("OK!\nIteracoes: %i\nInliers: %i\nEquacao: Y = %f + %fX\n", i+1, bestInliers, result.a, result.b);
 
         //imprimir dados na saida padrao para serem usados pela entrada padrao de script python para visualizar
         printf("@DATA_START\n");
