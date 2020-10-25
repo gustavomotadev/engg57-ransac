@@ -1,4 +1,20 @@
+#define CROSS
+
+#ifdef LINE
 #include "line_points_x4.h"
+#endif
+#ifdef CROSS
+#include "cross_points_x4.h"
+#endif
+#ifdef TRIANGLE
+#include "triangle_points_x4.h"
+#endif
+#ifdef ARROW
+#include "arrow_points_x4.h"
+#endif
+#ifdef SQUARE
+#include "square_points_x4.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,10 +25,17 @@
 #define DIST_TH_SQ (DIST_TH*DIST_TH)
 
 //numero maximo de iteracoes sorteando pares de pontos
-#define MAX_IT 20
+#define MAX_IT 25
 
 //numero de inliers a partir do qual o algoritmo aceita e para as iteracoes
-#define INLIER_TH ((int) NUM_POINTS_*0.4)
+#define INLIER_TH ((int) NUM_POINTS_*0.25)
+
+//HEURISTICA: distancia minima entre os pontos inicialmente sorteados
+#define MIN_SAMPLE_DIST 90
+#define MIN_SAMPLE_DIST_SQ (MIN_SAMPLE_DIST*MIN_SAMPLE_DIST)
+
+//HEURISTICA: maximo de tentativas para atingir MIN_SAMPLE_DIST
+#define MAX_RANDOM_TRIES 25
 
 //macros para pegar em data_points_ o valor de X e Y e o indice na mascara
 #define X(p) (p)
@@ -105,11 +128,19 @@ void linearRegression(RegressionResult * res, const unsigned char * data, const 
     res->a = mediaY - res->b*mediaX;
 }
 
+float distSquarePointPoint(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2)
+{
+    float deltaX = (float) x2 - x1;
+    float deltaY = (float) y2 - y1;
+    return deltaX * deltaX + deltaY * deltaY;
+}
+
 void main(void)
 {
-    int i, p, point1, point2, inliers;
+    int i, j, p, point1, point2, bestP1, bestP2, inliers;
     ModelConstants model, bestModel;
     RegressionResult result;
+    float currentDist, bestDist;
     int bestInliers = 0;
     //booleano
     unsigned char modelFound = 0;
@@ -119,12 +150,33 @@ void main(void)
     //encontrar uma reta
     for(i = 0; i < MAX_IT; i++)
     {
-        //Passo 1: Selecionar aleatoriamente 2 pontos
+        //Passo 1: Selecionar aleatoriamente 2 pontos (COM HEURISTICA)
+        //HEURISTICA: Tentar ate MAX_RANDOM_TRIES vezes obter distancia minima MIN_SAMPLE_DIST
         point1 = (rand()%NUM_POINTS_)*2;
         point2 = (rand()%NUM_POINTS_)*2;
+        bestP1 = point1;
+        bestP2 = point2;
+        currentDist = distSquarePointPoint(data_points_[X(point1)], data_points_[Y(point1)], data_points_[X(point2)], data_points_[Y(point2)]);
+        bestDist = currentDist;
+        if(currentDist < MIN_SAMPLE_DIST)
+        {
+            for(j = 0; j < MAX_RANDOM_TRIES-1; j++)
+            {
+                point1 = (rand()%NUM_POINTS_)*2;
+                point2 = (rand()%NUM_POINTS_)*2;
+                currentDist = distSquarePointPoint(data_points_[X(point1)], data_points_[Y(point1)], data_points_[X(point2)], data_points_[Y(point2)]);
+                if(currentDist > bestDist)
+                {
+                    bestDist = currentDist;
+                    bestP1 = point1;
+                    bestP2 = point2;
+                }
+                if(currentDist >= MIN_SAMPLE_DIST) break;
+            }
+        }
 
         //Passo 2: Encontrar os parâmetros do modelo (reta)
-        computeConstants(&model, data_points_[X(point1)], data_points_[Y(point1)], data_points_[X(point2)], data_points_[Y(point2)]);
+        computeConstants(&model, data_points_[X(bestP1)], data_points_[Y(bestP1)], data_points_[X(bestP2)], data_points_[Y(bestP2)]);
 
         //Passo 3: Computar quantos pontos do conjunto se ajustam a reta de acordo com uma tolerancia (inliers)
         inliers = 0;
