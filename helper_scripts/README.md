@@ -1,3 +1,6 @@
+### [<< Voltar ao Índice](https://github.com/gsimoes00/engg57-ransac)
+##
+
 # helper_scripts
 Esta pasta contém arquivos e scripts que auxiliam no desenvolvimento e testes.
 
@@ -46,4 +49,7 @@ Recebe na entrada padrão valores impressos por ransac.c e processa esses valore
 #### Uso (exemplo): ./ransac.out | python3 ../helper_scripts/ransac_result_visualizer.py
 ##### Esse exemplo assume o uso de sistema operacional Unix-like, com ransac.c compilado para ransac.out, python3 presente no $PATH do sistema operacional e com $PWD na pasta "ransac_desktop".
 
+##
+
+### [<< Voltar ao Índice](https://github.com/gsimoes00/engg57-ransac)
 ##

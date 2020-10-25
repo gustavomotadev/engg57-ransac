@@ -1,3 +1,6 @@
+### [<< Voltar ao Índice](https://github.com/gsimoes00/engg57-ransac)
+##
+
 # ransac_desktop
 Implementação em software para a plataforma Desktop PC do algoritmo RANSAC. Use os scripts segment_downsample.py para gerar pontos a partir de imagens e generate_c_header.py para gerar os cabeçalhos da linguagem C com os dados necessários. Compare os resultados com os fornecidos por ransac_python.py usando ransac_result_visualizer.py.
 
@@ -128,3 +131,7 @@ Equacao: Y = 28.170586 + 0.739307X
 1, 28.170586, 0.739307
 @DATA_END
 ```
+##
+
+### [<< Voltar ao Índice](https://github.com/gsimoes00/engg57-ransac)
+##
