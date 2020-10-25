@@ -1,2 +1,6 @@
 # engg57-ransac
-Application of the RANSAC algorithm in embedded C and Verilog for Altera Nios II and Cyclone IV E
+Aplicação embarcada do algoritmo RANSAC em linguagem C e Verilog para Altera Nios II e Cyclone IV E.
+
+## Índice
+* ### [Scripts Auxiliares](https://github.com/gsimoes00/engg57-ransac/tree/main/helper_scripts)
+* ### [Implementação em C para Desktop](https://github.com/gsimoes00/engg57-ransac/tree/main/ransac_desktop)
