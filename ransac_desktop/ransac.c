@@ -146,6 +146,7 @@ void main(void)
     unsigned char modelFound = 0;
 
     srand(time(NULL));
+    //srand(4096);
     
     //encontrar uma reta
     for(i = 0; i < MAX_IT; i++)
