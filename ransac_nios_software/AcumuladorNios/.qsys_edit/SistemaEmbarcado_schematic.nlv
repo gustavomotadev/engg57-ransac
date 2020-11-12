@@ -1,0 +1,23 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst SistemaEmbarcado.MemoriaDados -pg 1 -lvl 3 -y 130
+preplace inst SistemaEmbarcado.Processador -pg 1 -lvl 2 -y 320
+preplace inst SistemaEmbarcado.MedidorDesempenho -pg 1 -lvl 3 -y 210
+preplace inst SistemaEmbarcado.Processador.reset_bridge -pg 1
+preplace inst SistemaEmbarcado.clock -pg 1 -lvl 1 -y 340
+preplace inst SistemaEmbarcado.Processador.clock_bridge -pg 1
+preplace inst SistemaEmbarcado.MemoriaPrograma -pg 1 -lvl 3 -y 330
+preplace inst SistemaEmbarcado.Acumulador -pg 1 -lvl 3 -y 30
+preplace inst SistemaEmbarcado -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst SistemaEmbarcado.jtag_uart -pg 1 -lvl 3 -y 410
+preplace inst SistemaEmbarcado.Processador.cpu -pg 1
+preplace netloc INTERCONNECT<net_container>SistemaEmbarcado</net_container>(SLAVE)jtag_uart.reset,(SLAVE)MemoriaDados.reset1,(SLAVE)MemoriaPrograma.reset1,(MASTER)clock.clk_reset,(SLAVE)MedidorDesempenho.reset,(SLAVE)Acumulador.reset,(MASTER)Processador.debug_reset_request,(SLAVE)Processador.reset) 1 1 2 380 460 800
+preplace netloc FAN_OUT<net_container>SistemaEmbarcado</net_container>(SLAVE)MemoriaDados.clk1,(SLAVE)MedidorDesempenho.clock,(MASTER)clock.clk,(SLAVE)Processador.clk,(SLAVE)jtag_uart.clk,(SLAVE)Acumulador.clock,(SLAVE)MemoriaPrograma.clk1) 1 1 2 380 260 820
+preplace netloc EXPORT<net_container>SistemaEmbarcado</net_container>(SLAVE)SistemaEmbarcado.reset,(SLAVE)clock.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>SistemaEmbarcado</net_container>(SLAVE)SistemaEmbarcado.acumulador_conduit,(SLAVE)Acumulador.conduit) 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc POINT_TO_POINT<net_container>SistemaEmbarcado</net_container>(SLAVE)jtag_uart.irq,(MASTER)Processador.irq) 1 2 1 760
+preplace netloc INTERCONNECT<net_container>SistemaEmbarcado</net_container>(SLAVE)MemoriaDados.s1,(SLAVE)MedidorDesempenho.avalon_slave_escrita,(MASTER)Processador.data_master,(SLAVE)MemoriaPrograma.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)MedidorDesempenho.avalon_slave_leitura,(SLAVE)Processador.debug_mem_slave,(MASTER)Processador.instruction_master,(SLAVE)Acumulador.avalon_slave) 1 1 2 400 240 780
+preplace netloc EXPORT<net_container>SistemaEmbarcado</net_container>(SLAVE)MedidorDesempenho.conduit,(SLAVE)SistemaEmbarcado.medidordesempenho_conduit) 1 0 3 NJ 280 NJ 280 NJ
+preplace netloc EXPORT<net_container>SistemaEmbarcado</net_container>(SLAVE)clock.clk_in,(SLAVE)SistemaEmbarcado.clk) 1 0 1 NJ
+levelinfo -pg 1 0 170 1040
+levelinfo -hier SistemaEmbarcado 180 210 520 870 1030

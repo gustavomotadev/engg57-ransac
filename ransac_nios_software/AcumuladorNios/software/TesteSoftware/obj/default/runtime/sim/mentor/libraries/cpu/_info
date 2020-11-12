@@ -1,0 +1,560 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
+vSistemaEmbarcado_Processador_cpu
+Z1 !s110 1605134435
+!i10b 1
+!s100 8HIP120gb5E6MG]`3cQl_2
+I9l<cG@ombV`zU27lH?dBg1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1602614364
+Z4 8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v
+Z5 FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v
+L0 2834
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1605134435.000000
+Z8 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v|
+Z9 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v|-work|cpu|
+!i113 1
+Z10 o-work cpu
+Z11 tCvgOpt 0
+n@sistema@embarcado_@processador_cpu
+vSistemaEmbarcado_Processador_cpu_debug_slave_sysclk
+Z12 !s110 1605134436
+!i10b 1
+!s100 Yg4:2?K`<_]7O_c>8QGa;1
+IXUl@Qg<iSB15h]WWh`;Hn2
+R2
+R0
+R3
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v
+Z13 L0 21
+R6
+r1
+!s85 0
+31
+Z14 !s108 1605134436.000000
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v|-work|cpu|
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_debug_slave_sysclk
+vSistemaEmbarcado_Processador_cpu_debug_slave_tck
+R12
+!i10b 1
+!s100 niCNIPBH;HX]P7Jk:h<?73
+IDVnX_5@3YZkV5jN4C3R0P1
+R2
+R0
+R3
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v
+R13
+R6
+r1
+!s85 0
+31
+R14
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v|-work|cpu|
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_debug_slave_tck
+vSistemaEmbarcado_Processador_cpu_debug_slave_wrapper
+R12
+!i10b 1
+!s100 h=K;0lQ?lA56U]B7Dd51B2
+IEEA=cNzmNb0?X`TI;_9k^1
+R2
+R0
+R3
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_wrapper.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_wrapper.v
+R13
+R6
+r1
+!s85 0
+31
+R14
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_wrapper.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_wrapper.v|-work|cpu|
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_debug_slave_wrapper
+vSistemaEmbarcado_Processador_cpu_nios2_avalon_reg
+R1
+!i10b 1
+!s100 =25[d3=@gVf5`ZiL5A[9f2
+I=25@e_b:D<<CQFQ:Dg8@A3
+R2
+R0
+R3
+R4
+R5
+L0 2023
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_avalon_reg
+vSistemaEmbarcado_Processador_cpu_nios2_oci
+R1
+!i10b 1
+!s100 UTz4_Vn6mlT]BSam>nhhY3
+I3eH6QR[cL5DfjB?QM7?CA1
+R2
+R0
+R3
+R4
+R5
+L0 2362
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci
+vSistemaEmbarcado_Processador_cpu_nios2_oci_break
+R1
+!i10b 1
+!s100 <zn]UgkHPZ_9`:ihc8cW]2
+I0U;zLOGH2MzfQmdgbY;W11
+R2
+R0
+R3
+R4
+R5
+L0 295
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_break
+vSistemaEmbarcado_Processador_cpu_nios2_oci_compute_input_tm_cnt
+R1
+!i10b 1
+!s100 ?DUllB:OOG3>XCgUVQ<E40
+I0LA5>cc[@=N6n`RSdmD052
+R2
+R0
+R3
+R4
+R5
+L0 1265
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_compute_input_tm_cnt
+vSistemaEmbarcado_Processador_cpu_nios2_oci_dbrk
+R1
+!i10b 1
+!s100 G0Rj7JKcUc^9oKQlPa08o1
+I<l=NW][6@0]T4]z8I8CT?0
+R2
+R0
+R3
+R4
+R5
+L0 795
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_dbrk
+vSistemaEmbarcado_Processador_cpu_nios2_oci_debug
+R1
+!i10b 1
+!s100 A<Dz9Ci@B[Ai^7jb7CSzd3
+IB:oHQ87KjkUO8YzUjONTF2
+R2
+R0
+R3
+R4
+R5
+L0 153
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_debug
+vSistemaEmbarcado_Processador_cpu_nios2_oci_dtrace
+R1
+!i10b 1
+!s100 3BWLfhR8DTkbQIOi`9a2a1
+I9S@Kc_2XiPW[]:<i`]a0o2
+R2
+R0
+R3
+R4
+R5
+L0 1183
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_dtrace
+vSistemaEmbarcado_Processador_cpu_nios2_oci_fifo
+R1
+!i10b 1
+!s100 NB:CH_nKhVcUTFX6Q_:f_3
+IDd=ML52aAYK>4l9DYEJj82
+R2
+R0
+R3
+R4
+R5
+L0 1427
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_fifo
+vSistemaEmbarcado_Processador_cpu_nios2_oci_fifo_cnt_inc
+R1
+!i10b 1
+!s100 gB[PLfMZk9jQn6<SlHI`31
+IgE5:4IMHCfj^<OlgfD2N;0
+R2
+R0
+R3
+R4
+R5
+L0 1380
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_fifo_cnt_inc
+vSistemaEmbarcado_Processador_cpu_nios2_oci_fifo_wrptr_inc
+R1
+!i10b 1
+!s100 V6bKiWT64;5c8LfThT7lJ3
+IhAkY:TKX3^HT?3Lc33;oQ2
+R2
+R0
+R3
+R4
+R5
+L0 1337
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_fifo_wrptr_inc
+vSistemaEmbarcado_Processador_cpu_nios2_oci_im
+R1
+!i10b 1
+!s100 `c48g@S[Y6F?1NI^JTQA;1
+Ia?5S_SGAYOM2IXZF5kz_k3
+R2
+R0
+R3
+R4
+R5
+L0 1936
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_im
+vSistemaEmbarcado_Processador_cpu_nios2_oci_itrace
+R1
+!i10b 1
+!s100 H_S3R][cJCFZ26Y60h3;50
+Id>n@nTb=TEXL^NC;>O@JN1
+R2
+R0
+R3
+R4
+R5
+L0 982
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_itrace
+vSistemaEmbarcado_Processador_cpu_nios2_oci_pib
+R1
+!i10b 1
+!s100 cSZLVmo[L^<STCj`J3zzn3
+I78gPVmzfzaHAE1?QeGfbh1
+R2
+R0
+R3
+R4
+R5
+L0 1913
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_pib
+vSistemaEmbarcado_Processador_cpu_nios2_oci_td_mode
+R1
+!i10b 1
+!s100 T;JUmiKeKFbGfk5P0M<I>0
+IZGgS<oj3M@d`GPQVg]SgH3
+R2
+R0
+R3
+R4
+R5
+L0 1115
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_td_mode
+vSistemaEmbarcado_Processador_cpu_nios2_oci_xbrk
+R1
+!i10b 1
+!s100 <59Y775R]B;0JHi^KX`kL0
+I;Qa;[R5gdFHVaW?^NkH0`2
+R2
+R0
+R3
+R4
+R5
+L0 588
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_oci_xbrk
+vSistemaEmbarcado_Processador_cpu_nios2_ocimem
+R1
+!i10b 1
+!s100 n9:o]67fo3]`^Ye1;=hmR3
+IoBzUzf2[]fG06A3AV<6@I2
+R2
+R0
+R3
+R4
+R5
+L0 2181
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_ocimem
+vSistemaEmbarcado_Processador_cpu_nios2_performance_monitors
+R1
+!i10b 1
+!s100 ie:W35==FE8SK[>^5fGAB3
+I7M4IPUKU7nVh[m9Z7<YYZ2
+R2
+R0
+R3
+R4
+R5
+L0 2006
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_nios2_performance_monitors
+vSistemaEmbarcado_Processador_cpu_ociram_sp_ram_module
+R1
+!i10b 1
+!s100 IASPFjYY6<R;VTLgL]=4b0
+I;ldhB=T<ogjLDzG0DPUHX0
+R2
+R0
+R3
+R4
+R5
+L0 2116
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_ociram_sp_ram_module
+vSistemaEmbarcado_Processador_cpu_register_bank_a_module
+R1
+!i10b 1
+!s100 M:L1Klj>Y^jM_D]XW`d7`0
+I`Sk]H3d7eS9MQL<UP0QHm3
+R2
+R0
+R3
+R4
+R5
+R13
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_register_bank_a_module
+vSistemaEmbarcado_Processador_cpu_register_bank_b_module
+R1
+!i10b 1
+!s100 cHL[E0GQnR_EI@^aFLcJD1
+IC7XaO5;^o[S`M55klPI]50
+R2
+R0
+R3
+R4
+R5
+L0 87
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_register_bank_b_module
+vSistemaEmbarcado_Processador_cpu_test_bench
+R12
+!i10b 1
+!s100 J4K;o7MfZDB?TNeA@?hgh2
+IeIa^HLbMeIkIQBcW6@P>j3
+R2
+R0
+R3
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_test_bench.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_test_bench.v
+R13
+R6
+r1
+!s85 0
+31
+R14
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_test_bench.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_test_bench.v|-work|cpu|
+!i113 1
+R10
+R11
+n@sistema@embarcado_@processador_cpu_test_bench

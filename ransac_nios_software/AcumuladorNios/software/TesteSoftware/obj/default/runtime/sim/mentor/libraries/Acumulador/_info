@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
+vAcumulador_Function
+Z1 !s110 1605134438
+!i10b 1
+!s100 oFemJoBCdVY;Nk9HfPVPd2
+I2bDZBNL49JH0LD>@:m<FS0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1602614351
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1605134438.000000
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v|-work|Acumulador|
+!i113 1
+Z6 o-work Acumulador
+Z7 tCvgOpt 0
+n@acumulador_@function
+vAcumulador_Interface
+R1
+!i10b 1
+!s100 AekKF=cjPi@8Q?FjRd3M?1
+Ij=NOhA6bjXPldBD=<]j??0
+R2
+R0
+R3
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Interface.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Interface.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Interface.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Interface.v|-work|Acumulador|
+!i113 1
+R6
+R7
+n@acumulador_@interface

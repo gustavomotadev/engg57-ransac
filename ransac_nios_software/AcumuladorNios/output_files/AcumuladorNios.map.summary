@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Nov 10 20:53:35 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : AcumuladorNios
+Top-level Entity Name : AcumuladorNios
+Family : Cyclone IV E
+Total logic elements : 2,011
+    Total combinational functions : 1,776
+    Dedicated logic registers : 1,028
+Total registers : 1028
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 666,624
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
