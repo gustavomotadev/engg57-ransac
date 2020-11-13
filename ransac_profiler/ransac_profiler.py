@@ -25,8 +25,9 @@ else:
     with open(sys.argv[1], 'r') as transcript:
         for line in transcript:
             values = re.search(pattern, line)
-            data.append([int(values.group(1)), values.group(2), int(values.group(3))])
-            labels.add(values.group(2))
+            if values:
+                data.append([int(values.group(1)), values.group(2), int(values.group(3))])
+                labels.add(values.group(2))
 
     labels = list(labels)
     labels.sort()
@@ -56,20 +57,19 @@ else:
             #order
             data_dict[label]['order'] = data_dict[label]['total_time'] + 2*data_dict[label]['std_deviation']
 
-    labels.sort(key=lambda x: data_dict[x]['order'])
-
-    for label in labels:
-
-        data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
-
-        print('[Section ' + label + '] Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
-            ' Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' %: ' + '{:05.1f}'.format(round(data_dict[label]['percentage'], 1)) + 
-            ' Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' S: ' + '{:9d}'.format(round(data_dict[label]['std_deviation'])))
-
     if not data_ok:
 
         print('Error in the data, not the same amount of starts and ends.')
         exit(2)
 
     else:
-        pass
+
+        labels.sort(key=lambda x: data_dict[x]['order'])
+
+        for label in labels:
+
+            data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
+
+            print('[Section ' + label + '] Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
+                ' Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' %: ' + '{:05.1f}'.format(round(data_dict[label]['percentage'], 1)) + 
+                ' Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' S: ' + '{:9d}'.format(round(data_dict[label]['std_deviation'])))
