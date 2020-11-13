@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
 vSistemaEmbarcado
-!s110 1605134439
+!s110 1605289171
 !i10b 1
 !s100 DYH4<EP?zV0FFz78kJi<T2
 Ig6=zj3lPNYi]`RU^QfWAd2
@@ -23,7 +23,7 @@ OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1605134439.000000
+!s108 1605289171.000000
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado.v|-work|SistemaEmbarcado_inst|
 !i113 1

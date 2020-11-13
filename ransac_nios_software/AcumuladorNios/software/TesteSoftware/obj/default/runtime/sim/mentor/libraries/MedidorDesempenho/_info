@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
 vClock_Counter
-Z1 !s110 1605134438
+Z1 !s110 1605289170
 !i10b 1
 !s100 hAbh9<HJh558ZEmMP>40@1
 I1VbBGM>1N;j29m2aOee6g2
@@ -23,12 +23,12 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1605134437.000000
+Z5 !s108 1605289170.000000
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Clock_Counter.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Clock_Counter.v|-work|MedidorDesempenho|
 !i113 1
-Z5 o-work MedidorDesempenho
-Z6 tCvgOpt 0
+Z6 o-work MedidorDesempenho
+Z7 tCvgOpt 0
 n@clock_@counter
 vClock_Counter_Interface
 R1
@@ -45,10 +45,10 @@ R4
 r1
 !s85 0
 31
-!s108 1605134438.000000
+R5
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Clock_Counter_Interface.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Clock_Counter_Interface.v|-work|MedidorDesempenho|
 !i113 1
-R5
 R6
+R7
 n@clock_@counter_@interface

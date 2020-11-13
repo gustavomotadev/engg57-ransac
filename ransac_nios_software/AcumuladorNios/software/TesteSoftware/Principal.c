@@ -17,9 +17,9 @@
 #define FLOAT 0xfffffffe
 #define INT 0xfffffffd
 #define TIME_F 0xfffffffc
-#define TIME(s) pause_print_time(s)
+#define TIME(s); {*MEDIDOR_ESCRITA = 2; pause_print_time(s); *MEDIDOR_ESCRITA = 1;}
 #else
-#define TIME(s)
+#define TIME(s);
 #endif
 
 //stamps dos tempos
@@ -119,7 +119,7 @@ void print_float(float f)
 
 void pause_print_time(char * stamp)
 {
-	*MEDIDOR_ESCRITA = 2;
+	//*MEDIDOR_ESCRITA = 2;
 	print_str("@T ");
 	//leitura do medidor le sempre a mesma coisa por algum motivo
 	//print_int(*MEDIDOR_ESCRITA);
@@ -127,7 +127,7 @@ void pause_print_time(char * stamp)
 	print_str(" ");
 	print_str(stamp);
 	print_str("\n");
-	*MEDIDOR_ESCRITA = 1;
+	//*MEDIDOR_ESCRITA = 1;
 }
 #endif
 
@@ -170,10 +170,12 @@ float distSquarePointLine(ModelConstants * cts, unsigned char x3, unsigned char 
     //https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line
 
     float temp = cts->deltaY*x3 - cts->deltaX*y3 + cts->beta;
+
+    float temp2 = cts->alpha * temp * temp;
 	
 	TIME(FUN_DSPL_END);
 	
-    return cts->alpha * temp * temp;
+    return temp2;
 }
 
 void linearRegression(RegressionResult * res, const unsigned char * data, const unsigned char * mask)
@@ -234,10 +236,12 @@ float distSquarePointPoint(unsigned char x1, unsigned char y1, unsigned char x2,
 
     float deltaX = (float) x2 - x1;
     float deltaY = (float) y2 - y1;
+
+    float temp = deltaX * deltaX + deltaY * deltaY;
 	
 	TIME(FUN_DSPP_END);
 	
-    return deltaX * deltaX + deltaY * deltaY;
+    return temp;
 
 }
 

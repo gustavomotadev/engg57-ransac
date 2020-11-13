@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
 vSistemaEmbarcado_Processador_cpu
-Z1 !s110 1605134435
+Z1 !s110 1605289168
 !i10b 1
 !s100 8HIP120gb5E6MG]`3cQl_2
 I9l<cG@ombV`zU27lH?dBg1
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1605134435.000000
+Z7 !s108 1605289168.000000
 Z8 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v|
 Z9 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu.v|-work|cpu|
 !i113 1
@@ -31,7 +31,7 @@ Z10 o-work cpu
 Z11 tCvgOpt 0
 n@sistema@embarcado_@processador_cpu
 vSistemaEmbarcado_Processador_cpu_debug_slave_sysclk
-Z12 !s110 1605134436
+Z12 !s110 1605289169
 !i10b 1
 !s100 Yg4:2?K`<_]7O_c>8QGa;1
 IXUl@Qg<iSB15h]WWh`;Hn2
@@ -45,7 +45,7 @@ R6
 r1
 !s85 0
 31
-Z14 !s108 1605134436.000000
+R7
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_sysclk.v|-work|cpu|
 !i113 1
@@ -67,7 +67,7 @@ R6
 r1
 !s85 0
 31
-R14
+Z14 !s108 1605289169.000000
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_Processador_cpu_debug_slave_tck.v|-work|cpu|
 !i113 1

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
 vAcumulador_Function
-Z1 !s110 1605134438
+Z1 !s110 1605289171
 !i10b 1
 !s100 oFemJoBCdVY;Nk9HfPVPd2
 I2bDZBNL49JH0LD>@:m<FS0
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1605134438.000000
+Z5 !s108 1605289171.000000
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/Acumulador_Function.v|-work|Acumulador|
 !i113 1

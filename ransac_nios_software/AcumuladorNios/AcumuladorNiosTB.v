@@ -11,6 +11,8 @@ AcumuladorNios DUV (CLOCK_50, KEY, SW, LEDR);
 
 real temp;
 
+integer fd;
+
 always #1 CLOCK_50 = !CLOCK_50;
 
 initial
@@ -42,6 +44,15 @@ initial
 	
 initial 
 	begin
+	
+		fd = $fopen("tb_result_file.txt", "w");
+		
+		if (!fd)
+			begin
+				$display("Erro na abertura de arquivo!");
+				$stop();
+			end
+			
 		forever
 			begin
 			
@@ -52,6 +63,7 @@ initial
 					32'hffffffff: 
 						begin
 							$display("\n########## FIM DO TESTBENCH ##########\n");
+							$fclose(fd);
 							$stop;
 						end
 					32'hfffffffe:
@@ -60,17 +72,24 @@ initial
 							temp = DUV.b2v_inst1.acumulador.writedata;
 							temp = temp / 100000;
 							$write("%f", temp);
+							$fwrite(fd, "%f", temp);
 						end
 					32'hfffffffd:
 						begin
 							@(posedge DUV.b2v_inst1.acumulador.write);
 							$write("%d", DUV.b2v_inst1.acumulador.writedata);
+							$fwrite(fd, "%d", DUV.b2v_inst1.acumulador.writedata);
 						end
 					32'hfffffffc:
 						begin
 							$write("%d", DUV.b2v_inst1.medidordesempenho.CC.clk_count);
+							$fwrite(fd, "%d", DUV.b2v_inst1.medidordesempenho.CC.clk_count);
 						end
-					default: $write("%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+					default: 
+						begin
+							$write("%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+							$fwrite(fd, "%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+						end
 					
 				endcase
 				

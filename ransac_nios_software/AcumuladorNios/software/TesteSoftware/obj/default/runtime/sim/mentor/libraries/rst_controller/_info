@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
 valtera_reset_controller
-Z1 !s110 1605134436
+Z1 !s110 1605289169
 !i10b 1
 !s100 z[H_hRO9gO=:^2E3_jWH03
 I?bQHFl2ReKEeR?2UmU;m>1
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1605134436.000000
+Z5 !s108 1605289169.000000
 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/altera_reset_controller.v|
 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/altera_reset_controller.v|-work|rst_controller|
 !i113 1
