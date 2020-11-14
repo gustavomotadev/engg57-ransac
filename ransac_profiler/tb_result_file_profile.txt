@@ -1,0 +1,17 @@
+| Label: a | Section: FUN_COPY     | Executions:     2 | Time:       358 | %:   0.001 |
+| Label: m | Section: UPDATE_BEST  | Executions:     4 | Time:       908 | %:   0.004 |
+| Label: q | Section: LREG_RES     | Executions:     1 | Time:      7004 | %:   0.028 |
+| Label: b | Section: FUN_COMP     | Executions:     4 | Time:     35474 | %:   0.144 |
+| Label: j | Section: STEP_2       | Executions:     4 | Time:     37422 | %:   0.152 |
+| Label: e | Section: FUN_DSPP     | Executions:     5 | Time:     38127 | %:   0.154 |
+| Label: i | Section: SELECT_2P    | Executions:     5 | Time:    112660 | %:   0.456 |
+| Label: h | Section: STEP_1       | Executions:     4 | Time:    114441 | %:   0.464 |
+| Label: o | Section: LREG_MED     | Executions:     1 | Time:    424829 | %:   1.721 |
+| Label: p | Section: LREG_SUM     | Executions:     1 | Time:   1744005 | %:   7.065 |
+| Label: d | Section: FUN_LREG     | Executions:     1 | Time:   2175975 | %:   8.815 |
+| Label: n | Section: STEP_4       | Executions:     4 | Time:   2179614 | %:   8.830 |
+| Label: c | Section: FUN_DSPL     | Executions:  1724 | Time:  20958551 | %:  84.905 |
+| Label: l | Section: INLIER_CHECK | Executions:  1724 | Time:  22225167 | %:  90.037 |
+| Label: k | Section: STEP_3       | Executions:     4 | Time:  22352307 | %:  90.552 |
+| Label: g | Section: ITER         | Executions:     4 | Time:  24684244 | %:  99.998 |
+| Label: f | Section: ALG          | Executions:     1 | Time:  24684619 | %: 100.000 |

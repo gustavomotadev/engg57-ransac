@@ -12,6 +12,35 @@ LABEL = 1
 TYPE = 2
 ALGORYTHM = 'f'
 
+def my_format(s):
+    s = list(s)
+    for i in range(len(s)):
+        if s[i] == '0' and i+1 < len(s) and s[i+1] != '.':
+            s[i] = ' '
+        else:
+            break
+    return ''.join(s)
+
+label_dict = {
+    'a': 'FUN_COPY', 
+    'b': 'FUN_COMP', 
+    'c': 'FUN_DSPL', 
+    'd': 'FUN_LREG', 
+    'e': 'FUN_DSPP',  
+    'f': 'ALG', 
+    'g': 'ITER', 
+    'h': 'STEP_1', 
+    'i': 'SELECT_2P',  
+    'j': 'STEP_2', 
+    'k': 'STEP_3',  
+    'l': 'INLIER_CHECK',  
+    'm': 'UPDATE_BEST', 
+    'n': 'STEP_4', 
+    'o': 'LREG_MED', 
+    'p': 'LREG_SUM', 
+    'q': 'LREG_RES' 
+}
+
 if len(sys.argv) != 2:
     print('Usage: ransac_profiler.py transcript_file')
     exit(2)
@@ -43,7 +72,7 @@ else:
     data_ok = True
     for label in labels:
         if len(data_dict[label][START]) != len(data_dict[label][END]):
-            print('Section ' + label + ' NOT OK!')
+            print('Section ' + label_dict[label] + '(' + label + ')' + ' NOT OK!')
             data_ok = False
         else:
             data_dict[label]['time_periods'] = [data_dict[label][END][n] - data_dict[label][START][n] for n in range(len(data_dict[label][START]))]
@@ -55,7 +84,7 @@ else:
             data_dict[label]['std_deviation'] = sqrt((reduce(lambda a,b: a + b, [(x - data_dict[label]['mean_time'])**2 for x in data_dict[label]['time_periods']])) / data_dict[label]['executions'])
 
             #order
-            data_dict[label]['order'] = data_dict[label]['total_time'] + 2*data_dict[label]['std_deviation']
+            #data_dict[label]['order'] = data_dict[label]['total_time'] + 2*data_dict[label]['std_deviation']
 
     if not data_ok:
 
@@ -64,12 +93,21 @@ else:
 
     else:
 
-        labels.sort(key=lambda x: data_dict[x]['order'])
+        labels.sort(key=lambda x: data_dict[x]['total_time'])
 
-        for label in labels:
+        with open(sys.argv[1].replace('.txt', '_profile.txt'), 'w') as output:
 
-            data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
+            for label in labels:
 
-            print('[Section ' + label + '] Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
-                ' Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' %: ' + '{:05.1f}'.format(round(data_dict[label]['percentage'], 1)) + 
-                ' Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' S: ' + '{:9d}'.format(round(data_dict[label]['std_deviation'])))
+                data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
+
+                #print('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
+                #    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + 
+                #    ' | Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' | S: ' + '{:9d}'.format(round(data_dict[label]['std_deviation'])) + ' |')
+
+                print('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
+                    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |')
+
+                output.write('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
+                    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |\n')
+            
