@@ -31,7 +31,7 @@ Define a semente do gerador aleatório
 
 STOP, INT, FLOAT e TIME_F definem constantes que quando escritas no endereço do acumulador, informam ao testbench qual o tipo do dado que será escrito em seguida, de modo que o testbench pode tomar uma ação de acordo. (Ver explicação do testbench) 
 
-DEBUG_PRINT, caso esteja definido, faz com que o código utilize o testbench para imprimir diversos valores na tela, se nÃo estiver definido, não será feita essa impressão, será apenas executado o algoritmo.
+DEBUG_PRINT, caso esteja definido, faz com que o código utilize o testbench para imprimir diversos valores na tela, se não estiver definido, não será feita essa impressão, será apenas executado o algoritmo.
 
 TIME(s) define um macro que representa nada quando DEBUG_PRINT não estiver definido e representa uma função do profiling quando DEBUG_PRINT está definida.
 
@@ -42,18 +42,17 @@ TIME(s) define um macro que representa nada quando DEBUG_PRINT não estiver defi
 #define FLOAT 0xfffffffe
 #define INT 0xfffffffd
 #define TIME_F 0xfffffffc
-#define TIME(s) pause_print_time(s)
+#define TIME(s); {*MEDIDOR_ESCRITA = 2; pause_print_time(s); *MEDIDOR_ESCRITA = 1;}
 #else
-#define TIME(s)
+#define TIME(s);
 #endif
 ```
 
-Os macros abaixo representam mnemônicos para várias seções do código, que serão impressas durante o profiling, compondo um conjunto de dados a ser analisado posteriormente pelo script [ransac_profiler.c](https://github.com/gsimoes00/engg57-ransac/blob/main/ransac_profiler/ransac_profiler.py).
+Os macros abaixo representam mnemônicos para várias seções do código, que serão impressas durante o profiling, compondo um conjunto de dados a ser analisado posteriormente pelo script [ransac_profiler.py](https://github.com/gsimoes00/engg57-ransac/blob/main/ransac_profiler/ransac_profiler.py).
 
 A letra representa a seção, 0 representa entrada e 1 representa saída.
 
 [Ver README do profiling.](https://github.com/gsimoes00/engg57-ransac/blob/main/ransac_profiler)
-
 
 ```c
 #define FUN_COPY_START "a 0"
@@ -136,7 +135,7 @@ A função pause_print_time pausa o medidor de desempenho, imprime uma string re
 ```c
 void pause_print_time(char * stamp)
 {
-	*MEDIDOR_ESCRITA = 2;
+	//*MEDIDOR_ESCRITA = 2;
 	print_str("@T ");
 	//leitura do medidor le sempre a mesma coisa por algum motivo
 	//print_int(*MEDIDOR_ESCRITA);
@@ -144,7 +143,7 @@ void pause_print_time(char * stamp)
 	print_str(" ");
 	print_str(stamp);
 	print_str("\n");
-	*MEDIDOR_ESCRITA = 1;
+	//*MEDIDOR_ESCRITA = 1;
 }
 #endif
 ```
@@ -229,7 +228,7 @@ while(1);
 
 ## Testbench
 
-O testbench é bastante rudimentar porém flexível, ele permite capturar tudo que é escrito no acumulador e usar isso como comandos para efetuar impressões de dados como caracteres, inteiros, números reais ou a quantidade de ciclos contados pelo medidor de desempenho. Possui também a funcionalidade de pausar a simulação de dentro do código do Nios II. O acumulador não mais tem a função de somar valores, ele apenas armazena esses valores momentâneamente e serve como uma saída padrão de impressão.
+O testbench é bastante rudimentar porém flexível, ele permite capturar tudo que é escrito no acumulador e usar isso como comandos para efetuar impressões de dados como caracteres, inteiros, números reais ou a quantidade de ciclos contados pelo medidor de desempenho. Possui também a funcionalidade de pausar a simulação de dentro do código do Nios II. O acumulador não mais tem a função de somar valores, ele apenas armazena esses valores momentâneamente e serve como uma saída padrão de impressão. O testbench também salva dados em arquivo.
 
 ```SystemVerilog
 `timescale 10ns/10ns
@@ -244,6 +243,8 @@ wire	[15:0] LEDR;
 AcumuladorNios DUV (CLOCK_50, KEY, SW, LEDR);
 
 real temp;
+
+integer fd;
 
 always #1 CLOCK_50 = !CLOCK_50;
 
@@ -262,6 +263,15 @@ initial
 	
 initial 
 	begin
+	
+		fd = $fopen("tb_result_file.txt", "w");
+		
+		if (!fd)
+			begin
+				$display("Erro na abertura de arquivo!");
+				$stop();
+			end
+			
 		forever
 			begin
 			
@@ -272,6 +282,7 @@ initial
 					32'hffffffff: 
 						begin
 							$display("\n########## FIM DO TESTBENCH ##########\n");
+							$fclose(fd);
 							$stop;
 						end
 					32'hfffffffe:
@@ -280,17 +291,24 @@ initial
 							temp = DUV.b2v_inst1.acumulador.writedata;
 							temp = temp / 100000;
 							$write("%f", temp);
+							$fwrite(fd, "%f", temp);
 						end
 					32'hfffffffd:
 						begin
 							@(posedge DUV.b2v_inst1.acumulador.write);
 							$write("%d", DUV.b2v_inst1.acumulador.writedata);
+							$fwrite(fd, "%d", DUV.b2v_inst1.acumulador.writedata);
 						end
 					32'hfffffffc:
 						begin
 							$write("%d", DUV.b2v_inst1.medidordesempenho.CC.clk_count);
+							$fwrite(fd, "%d", DUV.b2v_inst1.medidordesempenho.CC.clk_count);
 						end
-					default: $write("%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+					default: 
+						begin
+							$write("%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+							$fwrite(fd, "%c", DUV.b2v_inst1.acumulador.writedata[7:0]);
+						end
 					
 				endcase
 				
@@ -300,7 +318,6 @@ initial
 
 
 endmodule
-
 ```
 
 ##
@@ -311,19 +328,19 @@ endmodule
 # 
 # @DATA SEED       4096
 # 
-# @T         85 f 0
-# @T        321 g 0
-# @T        454 h 0
-# @T        587 i 0
-# @T      13999 e 0
+# @T         23 f 0
+# @T        149 g 0
+# @T        172 h 0
+# @T        195 i 0
+# @T      13497 e 0
 
 ...
 
-# @T   25419600 q 1
-# @T   25419733 d 1
-# @T   25419930 n 1
-# @T   25420063 g 1
-# @T   25420203 f 1
+# @T   24684479 q 1
+# @T   24684502 d 1
+# @T   24684589 n 1
+# @T   24684612 g 1
+# @T   24684642 f 1
 # 
 # @DATA OK 1
 # @DATA ITERATIONS          4
@@ -333,9 +350,11 @@ endmodule
 # 
 ########## FIM DO TESTBENCH ##########
 # 
-# ** Note: $stop    : D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v(55)
-#    Time: 809775350 ns  Iteration: 8  Instance: /AcumuladorNiosTB
-# Break in Module AcumuladorNiosTB at D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v line 55
+# ** Note: $stop    : D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v(67)
+#    Time: 810432370 ns  Iteration: 8  Instance: /AcumuladorNiosTB
+# Break in Module AcumuladorNiosTB at D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v line 67
+# End time: 20:19:54 on Nov 13,2020, Elapsed time: 5:39:22
+# Errors: 0, Warnings: 94
 ```
 
 ##
