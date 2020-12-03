@@ -75,7 +75,7 @@ else:
             print('Section ' + label_dict[label] + '(' + label + ')' + ' NOT OK!')
             data_ok = False
         else:
-            data_dict[label]['time_periods'] = [data_dict[label][END][n] - data_dict[label][START][n] for n in range(len(data_dict[label][START]))]
+            data_dict[label]['time_periods'] = [data_dict[label][END][n] - data_dict[label][START][n] - 23 for n in range(len(data_dict[label][START]))]
             data_dict[label]['executions'] = len(data_dict[label]['time_periods'])
             data_dict[label]['total_time'] = reduce(lambda a,b: a + b, data_dict[label]['time_periods'])
             data_dict[label]['mean_time'] = data_dict[label]['total_time'] / data_dict[label]['executions']
@@ -99,7 +99,11 @@ else:
 
             for label in labels:
 
-                data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
+                try:
+                    data_dict[label]['percentage'] = (data_dict[label]['total_time'] / data_dict[ALGORYTHM]['total_time']) * 100
+                except KeyError:
+                    data_dict[label]['percentage'] = 0
+                    print('Total algorythm time not available.')
 
                 #print('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
                 #    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + 
