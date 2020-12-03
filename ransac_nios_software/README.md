@@ -1,10 +1,10 @@
 ### [<< Voltar ao Índice](https://github.com/gsimoes00/engg57-ransac)
 ##
 
-# ransac_desktop
+# ransac_nios_software
 Esta pasta contém arquivos relativos ao projeto do Intel Quartus Prime que contém a implementação do algoritmo RANSAC para Nios II e Cyclone IV E e um testbench rudimentar da sua funcionalidade.
 
-## Diferenças da implementação Nios II para Desktop
+## Diferenças da implementação para Nios II em relação a Desktop
 
 ### Macros
 
