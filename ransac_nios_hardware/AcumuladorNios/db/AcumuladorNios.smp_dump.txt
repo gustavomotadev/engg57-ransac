@@ -1,0 +1,17 @@
+
+State Machine - |AcumuladorNios|SistemaEmbarcado:inst1|inlier_interface:acelerador_inlier|inlier_function:inst_inlier_function|estadoAtual
+Name estadoAtual.BETA estadoAtual.THRESHOLD estadoAtual.DELTAY estadoAtual.DELTAX estadoAtual.X3Y3 
+estadoAtual.DELTAX 0 0 0 0 0 
+estadoAtual.DELTAY 0 0 1 1 0 
+estadoAtual.THRESHOLD 0 1 0 1 0 
+estadoAtual.BETA 1 0 0 1 0 
+estadoAtual.X3Y3 0 0 0 1 1 
+
+State Machine - |AcumuladorNios|SistemaEmbarcado:inst1|SistemaEmbarcado_Processador:processador|SistemaEmbarcado_Processador_cpu:cpu|SistemaEmbarcado_Processador_cpu_nios2_oci:the_SistemaEmbarcado_Processador_cpu_nios2_oci|SistemaEmbarcado_Processador_cpu_debug_slave_wrapper:the_SistemaEmbarcado_Processador_cpu_debug_slave_wrapper|SistemaEmbarcado_Processador_cpu_debug_slave_tck:the_SistemaEmbarcado_Processador_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 

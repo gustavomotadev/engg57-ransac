@@ -1,0 +1,120 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
+vSistemaEmbarcado_jtag_uart
+!s110 1606961012
+!i10b 1
+!s100 9R2o9:K:ko2APaSIcJHGo2
+IXKM_]XObI]Bjn[V0zgBVO2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z2 w1606937565
+Z3 8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_jtag_uart.v
+Z4 FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_jtag_uart.v
+L0 331
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1606961011.000000
+Z7 !s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_jtag_uart.v|
+Z8 !s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/submodules/SistemaEmbarcado_jtag_uart.v|-work|jtag_uart|
+!i113 1
+Z9 o-work jtag_uart
+Z10 tCvgOpt 0
+n@sistema@embarcado_jtag_uart
+vSistemaEmbarcado_jtag_uart_scfifo_r
+Z11 !s110 1606961011
+!i10b 1
+!s100 [=CEnMaDCEBEQVI9IcEzU3
+I^Z4>>^MN__WFk6c?g1IQc1
+R1
+R0
+R2
+R3
+R4
+L0 243
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+R10
+n@sistema@embarcado_jtag_uart_scfifo_r
+vSistemaEmbarcado_jtag_uart_scfifo_w
+R11
+!i10b 1
+!s100 k_SCLU3fDZ8m9CaTN_hkD1
+I2UH6n:e^?`V@4_GBiNCQ63
+R1
+R0
+R2
+R3
+R4
+L0 78
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+R10
+n@sistema@embarcado_jtag_uart_scfifo_w
+vSistemaEmbarcado_jtag_uart_sim_scfifo_r
+R11
+!i10b 1
+!s100 E2?Y`IjTd=mXm;@e7UScD0
+IUKX[f`^N:Cg0LHF0OFaU40
+R1
+R0
+R2
+R3
+R4
+L0 164
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+R10
+n@sistema@embarcado_jtag_uart_sim_scfifo_r
+vSistemaEmbarcado_jtag_uart_sim_scfifo_w
+R11
+!i10b 1
+!s100 _kM?V`gA09T@fYIO?CND42
+IlF>HJf@ZOUHlbYM[N]l;L1
+R1
+R0
+R2
+R3
+R4
+L0 21
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+R10
+n@sistema@embarcado_jtag_uart_sim_scfifo_w

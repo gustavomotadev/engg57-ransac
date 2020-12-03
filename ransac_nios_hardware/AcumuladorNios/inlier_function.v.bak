@@ -1,0 +1,194 @@
+module inlier_function(clk, reset_n, enable, data_in, data_out);
+
+	input wire clk, reset_n, enable;
+	input wire signed [31:0] data_in;
+	output wire [31:0] data_out;
+
+	reg signed [8:0] x3_;
+	reg signed [8:0] y3_;
+	reg signed [8:0] deltaX_;
+	reg signed [8:0] deltaY_;
+	reg signed [16:0] beta_;
+	reg signed [31:0] threshold_;
+	wire inlier_;
+	
+	reg signed [8:0] x3_reg;
+	reg signed [8:0] y3_reg;
+	reg signed [8:0] deltaX_reg;
+	reg signed [8:0] deltaY_reg;
+	reg signed [16:0] beta_reg;
+	reg signed [31:0] threshold_reg;
+	
+	inlier_checker inst_inlier_checker(clk, x3_reg, y3_reg, deltaX_reg, deltaY_reg, beta_reg, threshold_reg, inlier_);
+	
+	//parametros de estado
+	parameter DELTAX	= 3'b000;
+	parameter DELTAY 	= 3'b001;
+	parameter BETA	= 3'b011;
+	parameter THRESHOLD 	= 3'b010;
+	parameter X3Y3	= 3'b110;
+	
+	//regs de estado
+	reg [2:0] estadoAtual;
+	reg [2:0] proximoEstado;
+	
+	assign data_out = {31'h00000000, inlier_};
+	
+	always@(negedge clk)
+		begin
+		
+		x3_reg <= x3_;
+		y3_reg <= y3_;
+		deltaX_reg <= deltaX_;
+		deltaY_reg <= deltaY_;
+		beta_reg <= beta_;
+		threshold_reg <= threshold_;
+		
+		if(!reset_n)
+			estadoAtual <= DELTAX;
+		else
+			estadoAtual <= proximoEstado;
+		
+		end
+	
+	always @(*)
+		begin
+			case (estadoAtual)
+			
+				DELTAX:
+					begin
+					
+					x3_ <= x3_reg;
+					y3_ <= y3_reg;
+					deltaY_ <= deltaY_reg;
+					beta_ <= beta_reg;
+					threshold_ <= threshold_reg;
+					
+					if(enable)
+						begin
+						deltaX_ <= data_in[8:0];
+						proximoEstado <= DELTAY;
+						end
+					else
+						begin
+						deltaX_ <= deltaX_reg;
+						proximoEstado <= DELTAX;
+						end
+					
+					end
+					
+				DELTAY:
+					begin
+					
+					x3_ <= x3_reg;
+					y3_ <= y3_reg;
+					deltaX_ <= deltaX_reg;
+					beta_ <= beta_reg;
+					threshold_ <= threshold_reg;
+					
+					if(enable)
+						begin
+						deltaY_ <= data_in[8:0];
+						proximoEstado <= BETA;
+						end
+					else
+						begin
+						deltaY_ <= deltaY_reg;
+						proximoEstado <= DELTAY;
+						end
+					
+					end
+					
+				BETA:
+					begin
+					
+					x3_ <= x3_reg;
+					y3_ <= y3_reg;
+					deltaX_ <= deltaX_reg;
+					deltaY_ <= deltaY_reg;
+					threshold_ <= threshold_reg;
+					
+					if(enable)
+						begin
+						beta_ <= data_in[16:0];
+						proximoEstado <= THRESHOLD;
+						end
+					else
+						begin
+						beta_ <= beta_reg;
+						proximoEstado <= BETA;
+						end
+					
+					end
+					
+				THRESHOLD:
+					begin
+					
+					x3_ <= x3_reg;
+					y3_ <= y3_reg;
+					deltaX_ <= deltaX_reg;
+					deltaY_ <= deltaY_reg;
+					beta_ <= beta_reg;
+					
+					if(enable)
+						begin
+						threshold_ <= data_in[31:0];
+						proximoEstado <= X3Y3;
+						end
+					else
+						begin
+						threshold_ <= threshold_reg;
+						proximoEstado <= THRESHOLD;
+						end
+					
+					end
+					
+				X3Y3:
+					begin
+					
+					deltaX_ <= deltaX_reg;
+					deltaY_ <= deltaY_reg;
+					beta_ <= beta_reg;
+					threshold_ <= threshold_reg;
+					
+					if(enable)
+						begin
+						x3_ <= {1'b0, data_in[15:8]};
+						y3_ <= {1'b0, data_in[7:0]};
+						
+						if(data_in[31:0] == 32'hffffffff)
+							begin
+							proximoEstado <= DELTAX;
+							end
+						else
+							begin
+							proximoEstado <= X3Y3;
+							end
+						
+						end
+					else
+						begin
+						x3_ <= x3_reg;
+						y3_ <= y3_reg;
+						proximoEstado <= X3Y3;
+						end
+					
+					end
+					
+				default:
+					begin
+					
+					x3_ <= x3_reg;
+					y3_ <= y3_reg;
+					deltaX_ <= deltaX_reg;
+					deltaY_ <= deltaY_reg;
+					beta_ <= beta_reg;
+					threshold_ <= threshold_reg;
+					proximoEstado <= DELTAX;
+					
+					end
+					
+			endcase
+		end
+
+endmodule

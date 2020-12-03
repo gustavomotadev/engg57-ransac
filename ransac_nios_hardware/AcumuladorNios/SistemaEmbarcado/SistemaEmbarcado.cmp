@@ -1,0 +1,9 @@
+	component SistemaEmbarcado is
+		port (
+			acumulador_conduit_readdata        : out std_logic_vector(31 downto 0);        -- readdata
+			clk_clk                            : in  std_logic                     := 'X'; -- clk
+			medidordesempenho_conduit_readdata : out std_logic_vector(31 downto 0);        -- readdata
+			reset_reset_n                      : in  std_logic                     := 'X'  -- reset_n
+		);
+	end component SistemaEmbarcado;
+

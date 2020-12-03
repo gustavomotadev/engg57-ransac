@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Projetos/Quartus/AcumuladorNios/software/TesteSoftware/obj/default/runtime/sim/mentor
+vAcumuladorNios
+Z1 !s110 1606961025
+!i10b 1
+!s100 EoMZL]8@F2J4balLU[_l92
+I;:JnbPj5KU3]UN]CHB^=[0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1602615280
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNios.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNios.v
+L0 19
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1606961025.000000
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNios.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNios.v|
+!i113 1
+Z5 tCvgOpt 0
+n@acumulador@nios
+vAcumuladorNiosTB
+R1
+!i10b 1
+!s100 5`P^EoX8nXzZTo:Q]agN31
+IKQMdIKQCzn^EOZX2>nDOT3
+R2
+R0
+w1606955197
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../AcumuladorNiosTB.v|
+!i113 1
+R5
+n@acumulador@nios@t@b
+vSeparador
+R1
+!i10b 1
+!s100 J@Z:fF9<F5AeZm:M``95X2
+Ik<L8:c0L<;BHnNNFYb1NV1
+R2
+R0
+w1601415438
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../Separador.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../Separador.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../Separador.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/mentor/../../../Separador.v|
+!i113 1
+R5
+n@separador
+vSistemaEmbarcado_tb
+!s110 1606961014
+!i10b 1
+!s100 Xij9]aW5@Y^3l]T:@7l670
+IF]W:;hSgog17BYhUJ<0L>1
+R2
+R0
+w1606937559
+8D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/SistemaEmbarcado_tb.v
+FD:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/SistemaEmbarcado_tb.v
+L0 6
+R3
+r1
+!s85 0
+31
+!s108 1606961014.000000
+!s107 D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/SistemaEmbarcado_tb.v|
+!s90 -reportprogress|300|D:/Projetos/Quartus/AcumuladorNios/SistemaEmbarcado/testbench/SistemaEmbarcado_tb/simulation/SistemaEmbarcado_tb.v|
+!i113 1
+R5
+n@sistema@embarcado_tb
