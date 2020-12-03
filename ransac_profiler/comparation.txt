@@ -1,0 +1,16 @@
+| Label: a | Section: FUN_COPY     | Mean:         0 | %:  -0.000 |
+| Label: m | Section: UPDATE_BEST  | Mean:         0 | %:  -0.000 |
+| Label: p | Section: LREG_SUM     | Mean:     -4777 | %:  -0.274 |
+| Label: q | Section: LREG_RES     | Mean:      -132 | %:  -1.891 |
+| Label: n | Section: STEP_4       | Mean:    -85335 | %: -15.661 |
+| Label: d | Section: FUN_LREG     | Mean:   -341361 | %: -15.688 |
+| Label: i | Section: SELECT_2P    | Mean:     -5678 | %: -25.225 |
+| Label: h | Section: STEP_1       | Mean:     -7449 | %: -26.057 |
+| Label: j | Section: STEP_2       | Mean:     -6220 | %: -66.652 |
+| Label: b | Section: FUN_COMP     | Mean:     -6221 | %: -70.326 |
+| Label: e | Section: FUN_DSPP     | Mean:     -5609 | %: -73.783 |
+| Label: o | Section: LREG_MED     | Mean:   -336470 | %: -79.206 |
+| Label: f | Section: ALG          | Mean: -22292933 | %: -90.311 |
+| Label: g | Section: ITER         | Mean:  -5573233 | %: -90.313 |
+| Label: k | Section: STEP_3       | Mean:  -5474228 | %: -97.963 |
+| Label: l | Section: INLIER_CHECK | Mean:    -12703 | %: -98.710 |

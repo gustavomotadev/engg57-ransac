@@ -1,0 +1,16 @@
+| Label: a | Section: FUN_COPY     | Executions:     2 | Mean:       156 | Time:       312 | %:   0.013 |
+| Label: m | Section: UPDATE_BEST  | Executions:     4 | Mean:       204 | Time:       816 | %:   0.034 |
+| Label: q | Section: LREG_RES     | Executions:     1 | Mean:      6849 | Time:      6849 | %:   0.286 |
+| Label: e | Section: FUN_DSPP     | Executions:     5 | Mean:      1993 | Time:      9963 | %:   0.417 |
+| Label: b | Section: FUN_COMP     | Executions:     4 | Mean:      2625 | Time:     10501 | %:   0.439 |
+| Label: j | Section: STEP_2       | Executions:     4 | Mean:      3112 | Time:     12449 | %:   0.521 |
+| Label: i | Section: SELECT_2P    | Executions:     5 | Mean:     16831 | Time:     84153 | %:   3.519 |
+| Label: h | Section: STEP_1       | Executions:     4 | Mean:     21138 | Time:     84550 | %:   3.535 |
+| Label: o | Section: LREG_MED     | Executions:     1 | Mean:     88336 | Time:     88336 | %:   3.693 |
+| Label: l | Section: INLIER_CHECK | Executions:  1724 | Mean:       166 | Time:    285876 | %:  11.953 |
+| Label: k | Section: STEP_3       | Executions:     4 | Mean:    113826 | Time:    455304 | %:  19.037 |
+| Label: p | Section: LREG_SUM     | Executions:     1 | Mean:   1739205 | Time:   1739205 | %:  72.719 |
+| Label: d | Section: FUN_LREG     | Executions:     1 | Mean:   1834591 | Time:   1834591 | %:  76.708 |
+| Label: n | Section: STEP_4       | Executions:     4 | Mean:    459545 | Time:   1838180 | %:  76.858 |
+| Label: g | Section: ITER         | Executions:     4 | Mean:    597805 | Time:   2391219 | %:  99.981 |
+| Label: f | Section: ALG          | Executions:     1 | Mean:   2391663 | Time:   2391663 | %: 100.000 |

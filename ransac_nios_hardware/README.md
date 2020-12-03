@@ -27,11 +27,11 @@ Este macro é utilizado para reiniciar a máquina de estados do acelerador quand
 
 #### Seções de execução
 
-A seção "d", apesar de ainda estar no código, não existe mais, tendo sido substituída pelo acelerador.
+A seção "c", apesar de ainda estar no código, não existe mais, tendo sido substituída pelo acelerador.
 
 ```
-#define FUN_LREG_START "d 0"
-#define FUN_LREG_END "d 1"
+#define FUN_DSPL_START "c 0"
+#define FUN_DSPL_END "c 1"
 ```
 
 ##

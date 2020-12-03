@@ -110,8 +110,10 @@ else:
                 #    ' | Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' | S: ' + '{:9d}'.format(round(data_dict[label]['std_deviation'])) + ' |')
 
                 print('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
-                    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |')
+                    ' | Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + 
+                    ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |')
 
                 output.write('| Label: ' + label + ' | ' + '{:21s}'.format('Section: ' + label_dict[label] + '') + ' | Executions: ' + '{:5d}'.format(data_dict[label]['executions']) + 
-                    ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |\n')
+                    ' | Mean: ' + '{:9d}'.format(round(data_dict[label]['mean_time'])) + ' | Time: ' + '{:9d}'.format(data_dict[label]['total_time']) + 
+                    ' | %: ' + my_format('{:7.3f}'.format(round(data_dict[label]['percentage'], 6))) + ' |\n')
             
